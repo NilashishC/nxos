@@ -6,7 +6,7 @@ files:
     maintainers: $team_nxos
   $cliconfs/:
     maintainers: $team_nxos
-  $httpapis/:
+  $httpapi/:
     maintainers: $team_nxos Qalthos
     labels: httpapi
   $module_utils/:
