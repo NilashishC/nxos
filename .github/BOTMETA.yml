@@ -1,25 +1,18 @@
 automerge: false
 files:
   docs/:
-    labels: docs
-    maintainers: $team_nxos samccann
+    maintainers: NilashishC samccann
   $actions/:
-    labels: action
     maintainers: $team_nxos
   $cliconfs/:
-    labels: cliconf
     maintainers: $team_nxos
   $httpapis/:
     maintainers: $team_nxos Qalthos
-    labels: httpapi
   $module_utils/:
-    labels: module_utils
     maintainers: $team_nxos
   $modules/:
-    labels: modules
     maintainers: $team_nxos
   $terminals/:
-    labels: terminal
     maintainers: $team_nxos
 macros:
   actions: plugins/action
