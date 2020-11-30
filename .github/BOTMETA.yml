@@ -8,7 +8,6 @@ files:
     maintainers: $team_nxos
   $httpapis/:
     maintainers: $team_nxos Qalthos
-    labels: httpapi
   $module_utils/:
     maintainers: $team_nxos
   $modules/:
