@@ -1,0 +1,38 @@
+automerge: false
+files:
+  docs/:
+    labels: docs
+    maintainers: $team_nxos samccann
+  $actions/:
+    labels: action
+    maintainers: $team_nxos
+  $cliconfs/:
+    labels: cliconf
+    maintainers: $team_nxos
+  $httpapis/:
+    maintainers: $team_nxos Qalthos
+    labels: httpapi
+  $module_utils/:
+    labels: module_utils
+    maintainers: $team_nxos
+  $modules/:
+    labels: modules
+    maintainers: $team_nxos
+  $terminals/:
+    labels: terminal
+    maintainers: $team_nxos
+macros:
+  actions: plugins/action
+  becomes: plugins/become
+  callbacks: plugins/callback
+  cliconfs: plugins/cliconf
+  connections: plugins/connection
+  doc_fragments: plugins/doc_fragments
+  filters: plugins/filter
+  httpapis: plugins/httpapi
+  inventories: plugins/inventory
+  lookups: plugins/lookup
+  module_utils: plugins/module_utils
+  modules: plugins/modules
+  terminals: plugins/terminal
+  team_nxos: NilashishC mikewiebe praveenramoorthy
