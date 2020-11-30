@@ -5,15 +5,18 @@ files:
   $actions/:
     maintainers: $team_nxos
   $cliconfs/:
+    labels: cliconf
     maintainers: $team_nxos
   $httpapis/:
     labels: httpapi
     maintainers: $team_nxos Qalthos
   $module_utils/:
+    labels: module_utils
     maintainers: $team_nxos
   $modules/:
     maintainers: $team_nxos
   $terminals/:
+    labels: terminal
     maintainers: $team_nxos
 macros:
   actions: plugins/action
