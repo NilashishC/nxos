@@ -32,7 +32,7 @@ from ansible_collections.cisco.nxos.plugins.module_utils.network.nxos.facts.fact
 from ansible_collections.cisco.nxos.plugins.module_utils.network.nxos.rm_templates.ospf_interfaces import (
     Ospf_interfacesTemplate,
 )
-
+import q
 
 class Ospf_interfaces(ResourceModule):
     """
@@ -79,8 +79,30 @@ class Ospf_interfaces(ResourceModule):
         """ Generate configuration commands to send based on
             want, have and desired state.
         """
+        q("want:")
+        for item in self.want:
+            q(item)
+        q("end want")
+        
+        q("have:")
+        for item in self.have:
+            q(item)
+        q("end have")
+        
         wantd = {entry["name"]: entry for entry in self.want}
         haved = {entry["name"]: entry for entry in self.have}
+
+        q("Modified want:")
+        for k,v in wantd.items():
+            q(k)
+            q(v)
+        q("End Modified want:")
+        
+        q("Modified have:")
+        for k,v in haved.items():
+            q(k)
+            q(v)
+        q("End Modified have:")
 
         # turn all lists of dicts into dicts prior to merge
         for entry in wantd, haved:

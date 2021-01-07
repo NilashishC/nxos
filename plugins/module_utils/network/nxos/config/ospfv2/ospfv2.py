@@ -31,7 +31,7 @@ from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.r
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import (
     get_from_dict,
 )
-
+import q
 
 class Ospfv2(ResourceModule):
     """
