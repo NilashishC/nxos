@@ -14,7 +14,7 @@ facilitates both facts gathering and native command generation for
 the given network resource.
 """
 
-import re
+import re, q
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.network_template import (
     NetworkTemplate,
 )
@@ -33,6 +33,20 @@ def _tmplt_authentication(data):
             cmd += " null"
     return cmd
 
+def _tmplt_area(data):
+    q("in _tmplt_area")
+    if data["afi"] == "ipv4":
+        cmd = "ip router ospf"
+    else:
+        cmd = "ipv6 router ospfv3"
+    
+    cmd += " {0} area {1}".format(data["process_id"], data["area"]["area_id"])
+
+    if not data["area"].get("secondaries", True):
+        cmd += " secondaries none"
+    
+    return cmd
+    
 
 class Ospf_interfacesTemplate(NetworkTemplate):
     def __init__(self, lines=None):
@@ -65,9 +79,7 @@ class Ospf_interfacesTemplate(NetworkTemplate):
                 (\s(?P<secondaries>secondaries\snone))?$""",
                 re.VERBOSE,
             ),
-            "setval": "{{ 'ip' if afi == 'ipv4' else 'ipv6' }} "
-                      "router {{ 'ospf' if afi == 'ipv4' else 'ospfv3' }} "
-                      "{{ process_id }} area {{ area.area_id }}{{ ' secondaries none' if area.secondaries|default('True') == False}}",
+            "setval": _tmplt_area,
             "result": {
                 "{{ name }}": {
                     "address_family": {
